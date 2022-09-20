@@ -1,23 +1,47 @@
 body {
-  font-family: "Source Sans Pro", sans-serif;
   font-size: 16px;
   padding: 1em;
+  color: #333333;
+  background-color: rgba(191, 163, 63, 0.2); 
 }
 
 h1 {
+  font-family: "Aboreto";
   font-size: 3em;
+  margin: 0.25em 0;
+  color: #333333;
 }
 
 h3 {
+  font-family: "Amiri";
   font-size: 2em;
   margin: 0.25em 0;
+  color: #333333;
 }
 
 p {
-  font-family: serif;
-  font-size: 1em;
+  font-family: "Amiri";
+  font-size: 20px;
+  color: #333333;
 }
 
 section {
   padding: 2em 0;
+}
+
+button {
+  font-family: "Amiri";
+  font-size: 2em;
+  margin: 0.25em 0;
+  color: #333333;
+  background-color: rgba(191, 163, 63, 0.2);
+  border-width: 1px;
+  border-color: rgba(191, 163, 63, 0.2);
+}
+
+counter {
+  font-family: "Amiri";
+  font-size: 2em;
+  margin: 0.25em 0;
+  color: #333333;
 }

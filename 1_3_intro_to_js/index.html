@@ -5,11 +5,21 @@
   <title>Interactive Data Visualization Tutorial</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro">
   <link rel="stylesheet" href="./style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Aboreto&family=Amiri:ital@0;1&family=Cinzel&family=EB+Garamond:ital@0;1&family=Sorts+Mill+Goudy&family=Spectral:wght@200&display=swap" rel="stylesheet">
 </head>
 <body>
-  <h1>Hello World!</h1>
-  <h3>Tutorial Assignment: 1_3_intro_to_js </h3>
-  <!-- add any HTML you might need here, like a button or a div -->
+  <h1>This is not a counter.</h1>
+  <button id="clicker" onclick="updateCounter()">
+    Click here...
+  </button>
+  <br></br>
+  <div class = "counter">
+    <counter id = "count">
+      0
+    </counter>
+  </div>
   <script src="main.js"></script>
 </body>
 </html>
