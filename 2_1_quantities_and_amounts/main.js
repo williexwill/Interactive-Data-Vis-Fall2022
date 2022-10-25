@@ -27,10 +27,10 @@ d3.csv('data/squirrelActivities.csv', d3.autoType)
     .paddingInner(.2)
 
   //color scale - ordinal, colors
-  // const color = d3.scaleOrdinal()
-  //   //.domain(data.map(d=> d.activity))
-  //   .domain(data)
-  //   .range(d3.schemeDark2)
+  const color = d3.scaleOrdinal()
+    //.domain(data.map(d=> d.activity))
+    .domain(data)
+    .range(d3.schemeDark2)
 
   //  //color scale - sequential, grey
   //  const color = d3.scaleSequential()
