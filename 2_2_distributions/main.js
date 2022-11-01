@@ -29,9 +29,9 @@ d3.csv("LaborData.csv", d3.autoType)
 
   // sizeScale - square root, count
   const sizeScale = d3.scaleSqrt()
-    //.domain([0, d3.max(pop)])
-    .domain([0, 8e6])
-    .range([0, 10])
+    .domain(d3.extent(data, d => d.Population))
+    //.range([0, 20])
+    .range([1, 70])
     
       /* HTML ELEMENTS */
 
@@ -40,7 +40,7 @@ d3.csv("LaborData.csv", d3.autoType)
   .append("svg")
   .attr("width", width)
   .attr("height", height)
-  .style("background-color", "#dcdbd9")
+  .style("background-color", "rgb(213 200 175)")
 
 // x axis
 
@@ -52,9 +52,11 @@ const circles = svg.selectAll(".dot")
   .join(
     enter => enter
       .append("circle")
+      .attr("r", 10)
       .call(sel => sel.transition()
-        .duration(1000)
-        .delay(d => d.ideology * 2000),
+        .duration(10000)
+        .delay(d => d.ideology * 10000)
+        .attr("r", d => sizeScale(d.Population)),
     update => update,
     exit => exit,
   )
@@ -62,7 +64,7 @@ const circles = svg.selectAll(".dot")
   .attr("cx", d => xScale(d.ideology))
   .attr("cy", d => yScale(d.Score))
   .attr("fill", d => colorScale(d.Party))
-  .attr("r", d => sizeScale(d.Population))
+  //.attr("r", d => sizeScale(d.Population))
   )
     
   });

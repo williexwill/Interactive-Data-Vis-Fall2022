@@ -70,8 +70,19 @@ Scales:
     .domain([0, 8e6])
     .range([0, 10]) (after playing with the range 10px seemed to work well)
 
+  ** after another tutoiral, realized I could use the d3.extent function for my domain! Code updated. Now dynamic! 
+
+  const sizeScale = d3.scaleSqrt()
+    .domain(d3.extent(data, d => d.Population))
+    .range([0, 20])
+    //.range([1, 70])
+  
+    However, I haven't figured out how to also make my *range* dynamice here...I guess it maps dyanmicaly, but I think I shouldn't start the range at 0. I guess ideally the range should at least account for the proportional difference between minimum and maximum if possible, and that's something on the scale of 1/70. That scale doesn't really work visually while also showing isoalted data points...perhaps somehting that could be achieved through interactivity.... a transition that began with a set visible radius for each senator, then sclaed proportionaly to show their constituency, might actually drive home the argument I'm trying to look at here about proportional support/antagonism towards labor issues.  
+
+  
+
 X and Y axis:
-Left these blank, but would consider adding labels.
+Left these blank, but would consider adding labels. As an admitted shortcut, I added some explanitory text directly in the HTML. 
 
 Circles:
-For this section I kept it simple. No transition animation. Just mapped coordinates, color, and size to the scales I created above.
+For this section I originally was going to keep it simple without transitions. But I revisted it after realzing some of the dynamic scaling and range issues I detailed above, and attempted to incoprorate both visualizations of the data via transition animation.
