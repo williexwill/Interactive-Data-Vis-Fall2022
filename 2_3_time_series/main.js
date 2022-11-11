@@ -50,42 +50,77 @@ d3.csv('311_Service_Requests_from_2010_to_Present_Rodents_clean.csv', d => {
   const svg = d3.select("#container")
     .append("svg")
     .attr("width", width)
-    .attr("height", height);
+    .attr("height", height)
+    .attr("viewBox", [0, 0, width, height])
+    .attr("style", "max-width: 100%; height: auto; height: intrinsic;");
   
-//   // BUILD AND CALL AXES
+  // BUILD AND CALL AXES
+  const xAxis = d3.axisBottom()
+  .scale(xScale)
+  // .ticks(9)
+  // .tickFormat(d => d['Feb 2018','Aug 2018','Feb 2019','Aug 2019','Feb 2020','Aug 2020','Feb 2021','Aug 2021','Feb 2022']);
+  
+  const yAxis = d3.axisLeft(yScale);
+
+  // svg.append("g")
+  //     .style("transform", `translate(${margin}px, ${margin}px)`)
+  //     .call(xAxis);
+  // svg.append("g")
+  //     .style("transform", `translate(${margin}px, ${margin}px)`)
+  //     .call(yAxis);
 
   // LINE GENERATOR FUNCTION
+  //failed experiment 
   // const line = d3.line()
   // .x(d => xScale(d.key))
   // .y(d => yScale(d.value))
 
-  const line = d3.line()
-  .x(d => xScale(d[0]))
-  .y(d => yScale(d[1]))
+  //This one works for the line
+  // const line = d3.line()
+  // .x(d => xScale(d[0]))
+  // .y(d => yScale(d[1]))
 
+  const area = d3.area()
+  .x(d => xScale(d[0]))
+  .y1(d => yScale(d[1]))
+  .y0(yScale(0));
+
+  //Grouped data, but not sure how to incorporate with the roll up...
   // const groupedData = d3.groups(data, d => d.borough)
   // console.log(groupedData)
 
-  // DRAW LINE
+
+  // // DRAW LINE/GRAPH
+  // //This works
   const path = svg.selectAll("path")
   .data([monthArray])
   .join("path")
-  .attr("d", d => line(d))
+  .attr("d", d => area(d))
   //.attr("class", ([borough, data]) => borough)
   .attr("stroke", "black")
-  .attr("fill", "none")
+  .attr("fill", "black")
+
+svg.append("g")
+  .attr("transform", `translate(${margin.left},0)`)
+  .call(yAxis)
+  .call(g => g.select(".domain").remove())
+  .call(g => g.selectAll(".tick line").clone()
+      .attr("x2", width - margin.left - margin.right)
+      .attr("stroke-opacity", 0.1))
+  .call(g => g.append("text")
+      .attr("x", -margin.left)
+      .attr("y", 10)
+      .attr("fill", "black")
+      .attr("text-anchor", "start")
+      .text("311 Rodent Sightings"));
+
+svg.append("g")
+  .attr("transform", `translate(0,${height - margin.bottom})`)
+  .call(xAxis
+    .ticks(9)
+    .tickFormat(d => d['Feb 2018','Aug 2018','Feb 2019','Aug 2019','Feb 2020','Aug 2020','Feb 2021','Aug 2021','Feb 2022']));
 
   });
   
 
-// // DRAW LINE
-// const path = svg.selectAll("path")
-// .data(groupedData)
-// .join("path")
-// .attr("d", ([borough, data]) => line(data))
-// .attr("class", ([borough, data]) => borough)
-// .attr("stroke", "black")
-// .attr("fill", "none")
-
-// });
 

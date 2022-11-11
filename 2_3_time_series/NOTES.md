@@ -131,3 +131,14 @@ I converted from a map back to an array. I was able to use that, and index posti
 
 It looks right, but now I'm so many steps away from my original data sets, no idea how I'll label/set up the axes, but I guess that's next...
 
+//Area
+I was able to use the linear scales and new data arrays to fairly easily translate my work into an area graph.
+
+//Axes and Labeling
+OK this actually maybe drove me the most crazy because it should be the most simple. 
+
+I had no problem setting up the y axis and creating a label for it.
+
+But as noted above, since I ended up creating a new date bucket and new array, I wasn't able to tie the x-axis back to the original date information. So instead I decided I would try to manually choose the information displayed. My goal was to set up 9 ticks marking 6 month intervals from the begining to the end of the date range of my data set (Feb 2018 – Feb 2022).
+
+I tried adjusting the xAxis variable both when initalizing the method and when calling it and appending it to the svg. Based on the documentation, either of these should have worked, but neither did. I left my work in the code.
