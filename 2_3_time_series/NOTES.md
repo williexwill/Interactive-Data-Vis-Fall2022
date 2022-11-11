@@ -87,3 +87,47 @@ I created a new const monthCount to hold the reuslts of my d3.rollup.
 
 Now I just need to figure out how to access that information when assigning my scales and line.
 
+I'm definitely having some trouble with my new scales and accessing nested data. I tried working with the newly created roll-up "monthCount"...but I'm running into some issues. Here are my latest attempts at scales, but I'm getting an error message that "monthCount.map" isn't a function.
+
+      // SCALES
+  const yScale = d3.scaleLinear()
+  .domain([0, d3.max(monthCount, d => d.value)])
+  .range([height - margin.bottom, margin.top])
+  
+  const xScale = d3.scaleBand()
+  .domain(monthCount.map(d => d.key))
+  .range([margin.left, width - margin.right])
+  .paddingInner(.0) //to give the illusion of continuous time
+
+If I change it to "data.map(...)" I can generatea line script, but it contains a bunch of NaN..
+
+    // SCALES
+  const yScale = d3.scaleLinear()
+  .domain([0, d3.max(monthCount, d => d.value)])
+  .range([height - margin.bottom, margin.top])
+  
+  const xScale = d3.scaleBand()
+  .domain(data.map(d => d.key))
+  .range([margin.left, width - margin.right])
+  .paddingInner(.0) //to give the illusion of continuous time
+
+I don't think I can pull from both datasets (original and rollup) at the same time to create my scales separate from the data I'm joining to, but maybe? (Still just a bunch of NaN)
+
+ // SCALES
+  const yScale = d3.scaleLinear()
+  .domain([0, d3.max(monthCount, d => d.value)])
+  .range([height - margin.bottom, margin.top])
+  
+  const xScale = d3.scaleBand()
+  .domain(data.map(d => d.timeBucket))
+  .range([margin.left, width - margin.right])
+  .paddingInner(.0) //to give the illusion of continuous time
+
+From the reading I'm doing I think this has something to do with nesting and "InternMap" but yeah I guess this is still an access issue. 
+
+I actually don't think it is a "nesting" issue neccessarily, since monthCount is its own array...I just can't figure out why I'm not able to access that array with the map function...
+
+I converted from a map back to an array. I was able to use that, and index postion to assign my scales and chart  path linked to my data!
+
+It looks right, but now I'm so many steps away from my original data sets, no idea how I'll label/set up the axes, but I guess that's next...
+
