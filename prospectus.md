@@ -13,7 +13,7 @@ Some of the factors I might examine in relation to public employment rates are:
 - Political party affiliation/governance
 - Economic inequality (if I can find data that measures this)
 
-My suspicion is that states that have lower rates of public employment, likely also lean Republican. My further suspicion is that lower rates of public employment, translate roughly to the lack of provision of government services, and the implementation of privatization and austerity measures. I suspect further that these measures might have negative external effects. But, we’ll have to see what the data shows.  
+My suspicion is that states that have lower rates of public employment likely also lean Republican. My further suspicion is that lower rates of public employment translate roughly to the lack of provision of government services, and the implementation of privatization and austerity measures. I suspect further that these measures might have negative external effects. But we’ll have to see what the data shows.  
 
-I am envisioning a narrative project with a geographic element that examines trends since the 1970s in either two comprable sized states (by population) with dramatic differences in public employment rates, or possibly looking at nation trends then breaking it down by states. I plan on including small multiples, with likely a heavy reliance on line graphs and some maps. 
+I am envisioning a narrative project with a geographic element that examines trends since the 1970s in either two comprable sized states (by population) with dramatic differences in public employment rates, or alternatively starting with some national trends and then breaking it down by states. I plan on including small multiples with likely a heavy reliance on line graphs and maps. 
 
