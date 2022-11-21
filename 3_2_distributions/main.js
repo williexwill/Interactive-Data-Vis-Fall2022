@@ -67,6 +67,7 @@ sizeScale = d3.scaleSqrt()
     .data([...Array.from(new Set(state.data.map(d => d.Party))), "All"])
     .join("option")
     .attr("value", d => d)
+    .attr("selected", d => (d === "All"))
     .text(d => d)
 
   selectElement
