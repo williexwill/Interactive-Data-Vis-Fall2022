@@ -55,11 +55,16 @@ d3.csv('311_Service_Requests_from_2010_to_Present_Rodents_clean.csv', d => {
     .attr("style", "max-width: 100%; height: auto; height: intrinsic;");
   
   // BUILD AND CALL AXES
+  // const xAxis = d3.axisBottom()
+  // .scale(xScale)
+  // // .ticks(9)
+  // // .tickFormat(d => d['Feb 2018','Aug 2018','Feb 2019','Aug 2019','Feb 2020','Aug 2020','Feb 2021','Aug 2021','Feb 2022']);
+  
   const xAxis = d3.axisBottom()
   .scale(xScale)
-  // .ticks(9)
-  // .tickFormat(d => d['Feb 2018','Aug 2018','Feb 2019','Aug 2019','Feb 2020','Aug 2020','Feb 2021','Aug 2021','Feb 2022']);
-  
+  .tickValues(xScale.domain().filter(function(d,i){ return !(i%6)}))
+  .tickFormat(d => d['Feb 2018','Aug 2018','Feb 2019','Aug 2019','Feb 2020','Aug 2020','Feb 2021','Aug 2021','Feb 2022', '']);
+
   const yAxis = d3.axisLeft(yScale);
 
   // svg.append("g")
@@ -116,9 +121,9 @@ svg.append("g")
 
 svg.append("g")
   .attr("transform", `translate(0,${height - margin.bottom})`)
-  .call(xAxis
-    .ticks(9)
-    .tickFormat(d => d['Feb 2018','Aug 2018','Feb 2019','Aug 2019','Feb 2020','Aug 2020','Feb 2021','Aug 2021','Feb 2022']));
+  .call(xAxis)
+    // .ticks(9)
+    // .tickFormat(d => d['Feb 2018','Aug 2018','Feb 2019','Aug 2019','Feb 2020','Aug 2020','Feb 2021','Aug 2021','Feb 2022']));
 
   });
   
