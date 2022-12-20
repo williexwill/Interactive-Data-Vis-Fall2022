@@ -63,7 +63,7 @@ d3.csv('311_Service_Requests_from_2010_to_Present_Rodents_clean.csv', d => {
   const xAxis = d3.axisBottom()
   .scale(xScale)
   .tickValues(xScale.domain().filter(function(d,i){ return !(i%6)}))
-  .tickFormat(d => d['Feb 2018','Aug 2018','Feb 2019','Aug 2019','Feb 2020','Aug 2020','Feb 2021','Aug 2021','Feb 2022', '']);
+  .tickFormat((d, i) => ['Feb 2018','Aug 2018','Feb 2019','Aug 2019','Feb 2020','Aug 2020','Feb 2021','Aug 2021','Feb 2022', ''][i]);
 
   const yAxis = d3.axisLeft(yScale);
 
